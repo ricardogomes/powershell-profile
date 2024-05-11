@@ -49,12 +49,11 @@
         {
           "type": "executiontime",
           "style": "powerline",
-          "powerline_symbol": "",
           "foreground": "p:lavender",
           "template": " <#fefefe></> {{ .FormattedMs }} ",
           "properties": {
             "threshold": 500,
-            "style": "austin",
+            "style": "round",
             "always_enabled": true
           }
         },
