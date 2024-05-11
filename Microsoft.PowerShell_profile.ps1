@@ -77,7 +77,6 @@ Enable-Dotenv
 # Admin Check and Prompt Customization
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 function prompt {
-    if(Test-Path function:/Update-Dotenv) { Dotenv\Update-Dotenv }
     if ($isAdmin) { "[" + (Get-Location) + "] # " } else { "[" + (Get-Location) + "] $ " }
 }
 $adminSuffix = if ($isAdmin) { " [ADMIN]" } else { "" }
@@ -255,3 +254,9 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
         Write-Error "Failed to install zoxide. Error: $_"
     }
 }
+
+
+function Update-Dotenv {
+    if(Test-Path function:/Update-Dotenv) { Dotenv\Update-Dotenv }
+}
+New-Alias -Name 'Set-PoshContext' -Value 'Update-Dotenv' -Scope Global -Force
