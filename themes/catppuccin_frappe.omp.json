@@ -20,7 +20,7 @@
         {
           "foreground": "p:pink",
           "properties": {
-            "folder_icon": "..\ue5fe..",
+            "folder_icon": ". \ue5fe .",
             "home_icon": "~",
             "style": "agnoster_short"
           },
@@ -45,6 +45,18 @@
           "template": "{{ .HEAD }} ",
           "style": "plain",
           "type": "git"
+        },
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "p:lavender",
+          "template": " <#fefefe></> {{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 500,
+            "style": "austin",
+            "always_enabled": true
+          }
         },
         {
           "style": "plain",
