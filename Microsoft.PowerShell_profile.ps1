@@ -234,7 +234,7 @@ Set-PSReadLineOption -Colors @{
     String = 'DarkCyan'
 }
 
-## Final Line to set prompt
+## Final Line to set prompt   
 oh-my-posh init pwsh --config https://raw.githubusercontent.com/ricardogomes/powershell-profile/main/themes/catppuccin_frappe.omp.json | Invoke-Expression
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
     Invoke-Expression (& { (zoxide init powershell | Out-String) })
