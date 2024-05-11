@@ -69,10 +69,15 @@ function Update-PowerShell {
 }
 Update-PowerShell
 
+## Configure DotEnv
+Import-Module ~\scoop\apps\ps-dotenv\current\Dotenv\ 
+Enable-Dotenv
+
 
 # Admin Check and Prompt Customization
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 function prompt {
+    if(Test-Path function:/Update-Dotenv) { Dotenv\Update-Dotenv }
     if ($isAdmin) { "[" + (Get-Location) + "] # " } else { "[" + (Get-Location) + "] $ " }
 }
 $adminSuffix = if ($isAdmin) { " [ADMIN]" } else { "" }
@@ -233,6 +238,8 @@ Set-PSReadLineOption -Colors @{
     Parameter = 'Green'
     String = 'DarkCyan'
 }
+
+
 
 ## Final Line to set prompt   
 oh-my-posh init pwsh --config https://raw.githubusercontent.com/ricardogomes/powershell-profile/main/themes/catppuccin_frappe.omp.json | Invoke-Expression

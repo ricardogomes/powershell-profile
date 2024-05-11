@@ -18,6 +18,17 @@
           "type": "os"
         },
         {
+          "type": "executiontime",
+          "style": "powerline",
+          "foreground": "p:lavender",
+          "template": " {{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 500,
+            "style": "round",
+            "always_enabled": true
+          }
+        },
+        {
           "foreground": "p:pink",
           "properties": {
             "folder_icon": ". \ue5fe .",
@@ -46,17 +57,7 @@
           "style": "plain",
           "type": "git"
         },
-        {
-          "type": "executiontime",
-          "style": "powerline",
-          "foreground": "p:lavender",
-          "template": " <#fefefe></> {{ .FormattedMs }} ",
-          "properties": {
-            "threshold": 500,
-            "style": "round",
-            "always_enabled": true
-          }
-        },
+        
         {
           "style": "plain",
           "foreground": "p:closer",
