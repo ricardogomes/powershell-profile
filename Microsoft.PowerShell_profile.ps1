@@ -35,7 +35,7 @@ function Update-Profile {
 Update-Profile
 
 function PullProfile {
-    Write-Host "Pull Profile from GitHub"
+    Write-Host "Pulling Profile from GitHub"
     $url = "https://raw.githubusercontent.com/ricardogomes/powershell-profile/main/Microsoft.PowerShell_profile.ps1"
     $oldhash = Get-FileHash $PROFILE
     Invoke-RestMethod $url -OutFile "$env:temp/Microsoft.PowerShell_profile.ps1"
@@ -45,6 +45,15 @@ function PullProfile {
         Write-Host "Profile has been updated. Please restart your shell to reflect changes" -ForegroundColor Magenta
     }
 }
+
+function PullProfileForce {
+    Write-Host "Pulling Profile from GitHub - FORCE"
+    $url = "https://raw.githubusercontent.com/ricardogomes/powershell-profile/main/Microsoft.PowerShell_profile.ps1"
+    Invoke-RestMethod $url -OutFile "$env:temp/Microsoft.PowerShell_profile.ps1"
+    Copy-Item -Path "$env:temp/Microsoft.PowerShell_profile.ps1" -Destination $PROFILE -Force
+    Write-Host "Profile has been updated. Please restart your shell to reflect changes" -ForegroundColor Magenta
+}
+
 
 function Update-PowerShell {
     if (-not $global:canConnectToGitHub) {
