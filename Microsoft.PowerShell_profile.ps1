@@ -238,8 +238,6 @@ Set-PSReadLineOption -Colors @{
     String = 'DarkCyan'
 }
 
-
-
 ## Final Line to set prompt   
 oh-my-posh init pwsh --config https://raw.githubusercontent.com/ricardogomes/powershell-profile/main/themes/catppuccin_frappe.omp.json | Invoke-Expression
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
@@ -255,7 +253,7 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
     }
 }
 
-
+# Trigger for DotEnv
 function Update-Dotenv {
     if(Test-Path function:/Update-Dotenv) { Dotenv\Update-Dotenv }
 }
