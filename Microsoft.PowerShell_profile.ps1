@@ -174,6 +174,20 @@ function tail {
   Get-Content $Path -Tail $n
 }
 
+# Terraform Functions 
+
+function tf_log_trace {
+    $Env:TF_LOG="TRACE"
+}
+
+function tf_log_info {
+    $Env:TF_LOG="INFO"
+}
+
+function tfi { terraform init }
+function tfp { terraform plan }
+function tfa { terraform apply }
+
 # Quick File Creation
 function nf { param($name) New-Item -ItemType "file" -Path . -Name $name }
 
