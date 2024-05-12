@@ -35,6 +35,7 @@ function Update-Profile {
 Update-Profile
 
 function PullProfile {
+    Write-Host "Pull Profile from GitHub"
     $url = "https://raw.githubusercontent.com/ricardogomes/powershell-profile/main/Microsoft.PowerShell_profile.ps1"
     $oldhash = Get-FileHash $PROFILE
     Invoke-RestMethod $url -OutFile "$env:temp/Microsoft.PowerShell_profile.ps1"
