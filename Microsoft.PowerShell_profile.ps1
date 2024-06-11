@@ -281,7 +281,9 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
 }
 
 # Trigger for DotEnv
-function Update-Dotenv {
-    if(Test-Path function:/Update-Dotenv) { Dotenv\Update-Dotenv }
-}
-New-Alias -Name 'Set-PoshContext' -Value 'Update-Dotenv' -Scope Global -Force
+#function Update-Dotenv {
+#    if(Test-Path function:/Update-Dotenv) { Dotenv\Update-Dotenv }
+#}
+#New-Alias -Name 'Set-PoshContext' -Value 'Update-Dotenv' -Scope Global -Force
+
+Invoke-Expression "$(direnv hook pwsh)"
