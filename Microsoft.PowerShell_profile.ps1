@@ -279,11 +279,3 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
         Write-Error "Failed to install zoxide. Error: $_"
     }
 }
-
-# Trigger for DotEnv
-#function Update-Dotenv {
-#    if(Test-Path function:/Update-Dotenv) { Dotenv\Update-Dotenv }
-#}
-#New-Alias -Name 'Set-PoshContext' -Value 'Update-Dotenv' -Scope Global -Force
-
-Invoke-Expression "$(direnv hook pwsh)"
